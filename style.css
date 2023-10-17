@@ -1,0 +1,76 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* variabel global */
+:root{
+    /* warna */
+    --clr-primaty:rgba(0,213,255,1);
+    --clr-primary-btn:#0e0e0e;
+    --clr-complete-btn:#28a745;
+    --clr-delete-btn:#f44336;
+    --clr-btn-text:#fff;
+    --clr-bg-1:#fc466b;
+    --clr-bg-2:#3b5efb;
+    --clr-app-bg:#fff;
+    --clr-item-bg:#e7eefc;
+    --clr-item-hover-bg:#dbe7ff;
+
+    /* typography */
+    /* ukuran font */
+    --fs-body:16px;
+    --fs-regular:1.2rem;
+    --fs-large:2rem;
+}
+
+/* dasar */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn{
+    padding: .5rem .75rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    color: var(--clr-btn-text);
+    font-weight: 500;
+    font-size: var(--fs-regular);
+}
+
+/* aplikasi */
+.todo-app{
+    min-width: 600px;
+    margin: 40px;
+    padding: .5rem;
+    background-color: var(--clr-app-bg);
+    border-radius: 1rem;
+}
+
+.todo-app h1{
+    text-align: center;
+}
+
+.input-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+input[type='text']{
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+}
+
+.add-task-btn{
+    background-color: var(--clr-primary-btn);
+}
+
+#taskList{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
