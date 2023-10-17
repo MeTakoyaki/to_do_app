@@ -1,5 +1,5 @@
 // array untuk menyimpan tugas
-let task = [];
+let tasks = [];
 
 // fungsi untuk menambahkan tugas
 function addTask(){
@@ -15,11 +15,11 @@ function addTask(){
             completed : false
         };
 
-        task.push(task);
-        renderTask();
+        tasks.push(task);
+        renderTasks();
         taskInput.value='';
-    }
-}
+    };
+};
 
 // menambahkan tugas baru saat tombol enter ditekan
 const taskInput = document.getElementById('taskInput');
@@ -31,29 +31,26 @@ taskInput.addEventListener('keypress',function(event){
 
 // fungsi menghapus tugas
 function deleteTask(id){
-    task = task.filter(task => task.id !== id);
-    renderTask();
-}
+    tasks = tasks.filter(task => task.id !== id);
+    renderTasks();
+};
 
 // fungsi menandai tugas yang sudah diselesaikan
 function markCompleted(id){
-    task = task.map(task => {
+    tasks = tasks.map(task => {
         if (task.id == id){
             task.completed = !task.completed;
         }
         return task;
     });
-    renderTask();
+    renderTasks();
     updateCompleteTask(id);
-
-
-    
 }
 
 function updateCompleteTask(id){
     const taskElement = document.getElementById(id);
     if(taskElement){
-        const task = task.find(task => task.id === id);
+        const task = tasks.find(task => task.id === id);
         if(task.completed){
             taskElement.classList.add('completed');
         }else{
@@ -63,11 +60,11 @@ function updateCompleteTask(id){
 }
 
 // fungsi untuk merender tugas pada halaman
-function renderTask(){
+function renderTasks(){
     const taskList = document.getElementById('taskList');
     taskList.innerHTML = '';
 
-    task.forEach(task => {
+    tasks.forEach(task => {
         // membuat daftar baru
         const listItem = document.createElement('li');
         listItem.setAttribute('id',task.id);
@@ -83,16 +80,16 @@ function renderTask(){
 
         // membuat tombol hapus tugas
         const deleteButton = document.createElement('i');
-        deleteButton.classList.add('box','bxs-trash','delete-btn');
+        deleteButton.classList.add('box','bx-trash','delete-btn');
         deleteButton.addEventListener('click', () => deleteTask(task.id))
 
         // menambahkan semua elemen kedalam daftar
         listItem.appendChild(taskName);
         listItem.appendChild(completeButton);
         listItem.appendChild(deleteButton);
-        listItem.appendChild(listItem);
+        taskList.appendChild(listItem);
     });
-}
+};
 
 // merender tugas
-renderTask()
+renderTasks();
